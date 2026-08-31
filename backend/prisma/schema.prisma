@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Equipment {
+  id           String   @id @default(uuid())
+  name         String
+  brand        String
+  status       String   // e.g., "Operativo", "En Mantenimiento", "De Baja"
+  serialNumber String   @unique @map("serial_number")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("equipments")
+}
