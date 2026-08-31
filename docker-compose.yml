@@ -1,0 +1,74 @@
+services:
+  # ==========================================
+  # 1. Base de Datos Relacional (PostgreSQL)
+  # ==========================================
+  db:
+    image: postgres:16-alpine
+    container_name: senati_postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres123}
+      POSTGRES_DB: ${DB_NAME:-inventory_db}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-inventory_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - inventory_network
+
+  # ==========================================
+  # 2. Backend API REST (NestJS + Prisma)
+  # ==========================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: senati_backend_api
+    restart: unless-stopped
+    environment:
+      PORT: ${BACKEND_PORT:-3000}
+      DATABASE_URL: "postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-postgres123}@db:5432/${DB_NAME:-inventory_db}?schema=public"
+    ports:
+      - "${BACKEND_PORT:-3000}:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - inventory_network
+
+  # ==========================================
+  # 3. Frontend UI (React + Vite + Nginx)
+  # ==========================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3000/api}
+        VITE_SWAGGER_URL: ${VITE_SWAGGER_URL:-http://localhost:3000/api/docs}
+    container_name: senati_frontend_app
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      - backend
+    networks:
+      - inventory_network
+
+# ==========================================
+# Volúmenes y Redes
+# ==========================================
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  inventory_network:
+    driver: bridge
