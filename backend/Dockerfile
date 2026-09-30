@@ -54,5 +54,5 @@ COPY --from=builder /app/dist ./dist
 # Exponer el puerto del backend
 EXPOSE 3000
 
-# Comando para ejecutar migraciones y arrancar el servidor
-CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main.js"]
+# Comando para sincronizar base de datos y arrancar el servidor
+CMD ["sh", "-c", "npx prisma db push && node dist/main.js"]
