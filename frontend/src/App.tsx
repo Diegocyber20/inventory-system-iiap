@@ -263,7 +263,7 @@ export function App() {
       <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm py-6 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p>
-            © {new Date().getFullYear()} SENATI - Sistema de Gestión de Inventario de Equipos
+            © {new Date().getFullYear()} IIAP - Sistema de Gestión de Inventario de Equipos
           </p>
           <div className="flex items-center gap-4">
             <span>TypeScript • NestJS • React • PostgreSQL • Docker</span>

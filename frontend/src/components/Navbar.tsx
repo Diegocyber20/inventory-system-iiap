@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight">
-                  SENATI <span className="text-blue-600 dark:text-blue-400">Inventario</span>
+                  IIAP <span className="text-blue-600 dark:text-blue-400">Inventario</span>
                 </h1>
                 <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-semibold bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                   <Sparkles className="w-3 h-3" /> v1.0

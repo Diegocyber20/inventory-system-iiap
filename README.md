@@ -1,4 +1,4 @@
-# 🖥️ Sistema de Gestión de Inventario de Equipos de Cómputo - SENATI
+# 🖥️ Sistema de Gestión de Inventario de Equipos de Cómputo - IIAP
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
 [![NestJS](https://img.shields.io/badge/NestJS-11.0-ea2849.svg?logo=nestjs)](https://nestjs.com/)
@@ -8,7 +8,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED.svg?logo=docker)](https://www.docker.com/)
 [![Swagger](https://img.shields.io/badge/Swagger-OpenAPI%203.0-85EA2D.svg?logo=swagger)](http://localhost:3000/api/docs)
 
-> **Prueba Técnica:** Practicante Preprofesional - Full Stack (TypeScript) — SENATI  
+> **Sistema de Gestión de Inventario de Equipos de Cómputo — IIAP**  
 > Aplicación web integral para la administración y control de inventario de equipos de cómputo del laboratorio (CRUD completo).
 
 ---
@@ -30,7 +30,7 @@
 
 ## 🚀 Descripción del Proyecto
 
-El **Sistema de Gestión de Inventario SENATI** permite a los administradores y encargados de laboratorio registrar, consultar, auditar, actualizar el estado operativo y dar de baja a los equipos de cómputo (laptops, monitores, periféricos, servidores y dispositivos de red).
+El **Sistema de Gestión de Inventario IIAP** permite a los administradores y encargados de laboratorio registrar, consultar, auditar, actualizar el estado operativo y dar de baja a los equipos de cómputo (laptops, monitores, periféricos, servidores y dispositivos de red).
 
 ### 🎯 Funcionalidades CRUD:
 1. **Crear Equipo (`POST /api/equipments`):** Registro de nuevos dispositivos con nombre, marca, estado inicial y número de serie único validado.
@@ -93,7 +93,7 @@ Todo el ecosistema (PostgreSQL, Backend y Frontend) se levanta con un solo coman
 ### 1. Clonar el repositorio
 ```bash
 git clone <URL_DEL_REPOSITORIO>
-cd inventory-system-senati
+cd inventory-system-iiap
 ```
 
 ### 2. Configurar variables de entorno
@@ -242,7 +242,7 @@ Siguiendo las mejores prácticas de **GitFlow** y commits convencionales (*Conve
 ## 📁 Estructura del Repositorio
 
 ```text
-inventory-system-senati/
+inventory-system-iiap/
 ├── .env.example             # Plantilla de variables de entorno global
 ├── .gitignore               # Exclusiones globales de Git
 ├── docker-compose.yml       # Orquestador multi-contenedor (Postgres, Backend, Frontend)
@@ -303,8 +303,7 @@ inventory-system-senati/
 
 ---
 
-## 👨‍💻 Autor y Evaluación
+## 👨‍💻 Información del Proyecto
 
-- **Institución:** SENATI
-- **Puesto:** Practicante Preprofesional - Full Stack (TypeScript)
-- **Repositorio:** [inventory-system-senati](https://github.com/...)
+- **Organización / Proyecto:** IIAP
+- **Repositorio:** [inventory-system-iiap](https://github.com/...)

@@ -29,7 +29,7 @@ async function bootstrap() {
 
   // Configuración de Swagger (OpenAPI)
   const config = new DocumentBuilder()
-    .setTitle('Sistema de Gestión de Inventario de Equipos - SENATI')
+    .setTitle('Sistema de Gestión de Inventario de Equipos - IIAP')
     .setDescription(
       'API RESTful para la administración de inventario de equipos de cómputo del laboratorio. Permite registrar, consultar, actualizar y eliminar equipos.',
     )
@@ -39,7 +39,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document, {
-    customSiteTitle: 'SENATI Inventory API Docs',
+    customSiteTitle: 'IIAP Inventory API Docs',
     customCss: '.swagger-ui .topbar { background-color: #0B2860; }',
   });
 
